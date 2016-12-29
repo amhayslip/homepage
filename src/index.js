@@ -5,7 +5,6 @@ import ShortcutList from './components/shortcut_list'
 
 
 class App extends Component {
-
   constructor (props) {
     super(props)
 
