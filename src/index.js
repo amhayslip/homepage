@@ -9,7 +9,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      shortcuts: []
+      shortcuts: JSON.parse(localStorage.getItem('shortcuts')) || []
     }
   }
 
@@ -20,6 +20,8 @@ class App extends Component {
 
     this.setState({
       shortcuts: this.state.shortcuts.concat([newShortcut])
+    }, () => {
+      localStorage.setItem('shortcuts', JSON.stringify(this.state.shortcuts));
     })
   }
 
@@ -32,7 +34,6 @@ class App extends Component {
     )
   }
 }
-
 
 ReactDOM.render(
   <App />,
