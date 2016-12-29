@@ -29,9 +29,11 @@ class App extends Component {
 
   render () {
     return (
-      <div>
-        <InputBar onShortcutSubmit={shortcut => this.addShortcut(shortcut)} />
-        <ShortcutList shortcuts={this.state.shortcuts} />
+      <div className='row'>
+        <div className='col-md-12'>
+          <InputBar onShortcutSubmit={shortcut => this.addShortcut(shortcut)} />
+          <ShortcutList shortcuts={this.state.shortcuts} />
+        </div>
       </div>
     )
   }

@@ -3,9 +3,9 @@ import React from 'react';
 const ShortcutItem = ({shortcut}) => {
 
   return (
-    <li className='list-group-item'>
+    <div className='list-group-item col-md-4'>
       {shortcut.url}
-    </li>
+    </div>
   )
 }
 

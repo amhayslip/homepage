@@ -13,9 +13,11 @@ const ShortcutList = (props) => {
   })
 
   return (
-    <ul className='col-md-4 list-group'>
-      {shortcuts}
-    </ul>
+    <div className='row'>
+      <div className='col-md-8 col-md-offset-2 list-group'>
+        {shortcuts}
+      </div>
+    </div>
   )
 }
 

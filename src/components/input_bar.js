@@ -13,7 +13,7 @@ class InputBar extends Component {
 
   render () {
     return (
-      <div>
+      <div className='input-container'>
         <input
           value={this.state.url}
           onChange={event => this.setState({url: event.target.value})} />
