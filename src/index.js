@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 import InputBar from './components/input_bar'
+import ShortcutList from './components/shortcut_list'
 
 
 class App extends Component {
