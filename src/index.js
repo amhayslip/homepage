@@ -5,11 +5,14 @@ import ShortcutList from './components/shortcut_list'
 
 
 class App extends Component {
+
   constructor (props) {
     super(props)
 
+    this.STORAGE_ID = 'homepage_shortcuts'
+
     this.state = {
-      shortcuts: JSON.parse(localStorage.getItem('shortcuts')) || []
+      shortcuts: JSON.parse(localStorage.getItem(this.STORAGE_ID)) || []
     }
   }
 
@@ -21,7 +24,7 @@ class App extends Component {
     this.setState({
       shortcuts: this.state.shortcuts.concat([newShortcut])
     }, () => {
-      localStorage.setItem('shortcuts', JSON.stringify(this.state.shortcuts));
+      localStorage.setItem(this.STORAGE_ID, JSON.stringify(this.state.shortcuts));
     })
   }
 
