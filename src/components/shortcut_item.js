@@ -1,10 +1,11 @@
 import React from 'react';
 
-const ShortcutItem = ({shortcut}) => {
+const ShortcutItem = (props) => {
+  console.log(props)
 
   return (
     <div className='list-group-item col-md-4'>
-      {shortcut.url}
+      {props.url}
     </div>
   )
 }
