@@ -15,8 +15,9 @@ class App extends Component {
     }
   }
 
-  addShortcut (shortcut, img) {
+  addShortcut (title, shortcut, img) {
     const newShortcut = {
+      title: title,
       url: shortcut,
       img: img
     }
@@ -32,7 +33,7 @@ class App extends Component {
     return (
       <div className='row'>
         <div className='col-md-12'>
-          <InputBar onShortcutSubmit={(shortcut, img) => this.addShortcut(shortcut, img)} />
+          <InputBar onShortcutSubmit={(title, shortcut, img) => this.addShortcut(title, shortcut, img)} />
           <ShortcutList shortcuts={this.state.shortcuts} />
         </div>
       </div>

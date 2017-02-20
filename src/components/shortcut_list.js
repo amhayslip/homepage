@@ -8,7 +8,7 @@ const ShortcutList = (props) => {
 
   const shortcuts = props.shortcuts.map((shortcut, index) => {
     return (
-      <ShortcutItem shortcut={shortcut.url} key={index} />
+      <ShortcutItem title={shortcut.title} url={shortcut.url} img={shortcut.img} key={index} />
     )
   })
 

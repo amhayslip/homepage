@@ -5,18 +5,22 @@ class InputBar extends Component {
     super(props)
 
     this.state = {
+      title: '',
       url: '',
       img: ''
     }
   }
 
   handleClick () {
-    this.props.onShortcutSubmit(this.state.url)
+    this.props.onShortcutSubmit(this.state.title, this.state.url, this.state.img)
   }
 
   render () {
     return (
       <div className='input-container'>
+        <input placeholder='title'
+          value={this.state.title}
+          onChange={event => this.setState({title: event.target.value})} />
         <input placeholder='url'
           value={this.state.url}
           onChange={event => this.setState({url: event.target.value})} />
