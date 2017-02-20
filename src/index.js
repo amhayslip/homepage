@@ -11,7 +11,8 @@ class App extends Component {
     this.STORAGE_ID = 'homepage_shortcuts'
 
     this.state = {
-      shortcuts: JSON.parse(localStorage.getItem(this.STORAGE_ID)) || []
+      shortcuts: JSON.parse(localStorage.getItem(this.STORAGE_ID)) || [],
+      editMode: false
     }
   }
 
@@ -29,12 +30,25 @@ class App extends Component {
     })
   }
 
+  renderEditText () {
+    if (this.state.editMode) {
+      return 'Done'
+    } else {
+      return 'Edit'
+    }
+  }
+
+  handleEditClick () {
+    this.setState({ editMode: !this.state.editMode });
+  }
+
   render () {
     return (
       <div className='row'>
         <div className='col-md-12'>
           <InputBar onShortcutSubmit={(title, shortcut, img) => this.addShortcut(title, shortcut, img)} />
-          <ShortcutList shortcuts={this.state.shortcuts} />
+          <button onClick={() => this.handleEditClick()} className='btn'>{this.renderEditText()}</button>
+          <ShortcutList shortcuts={this.state.shortcuts} editMode={this.state.editMode} />
         </div>
       </div>
     )

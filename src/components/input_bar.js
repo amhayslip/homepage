@@ -27,11 +27,10 @@ class InputBar extends Component {
         <input placeholder='img url'
           value={this.state.img}
           onChange={event => this.setState({img: event.target.value})} />
-        <button onClick={() => this.handleClick()}>submit</button>
+        <button className='btn' onClick={() => this.handleClick()}>submit</button>
       </div>
     )
   }
-
 }
 
 export default InputBar
