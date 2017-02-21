@@ -12,9 +12,17 @@ class App extends Component {
     this.STORAGE_ID = 'homepage_shortcuts'
 
     this.state = {
-      shortcuts: JSON.parse(localStorage.getItem(this.STORAGE_ID)) || [],
+      shortcuts: this.getFromLocalStorage(),
       editMode: false
     }
+  }
+
+  getFromLocalStorage () {
+    return JSON.parse(localStorage.getItem(this.STORAGE_ID)) || []
+  }
+
+  setToLocalStorage () {
+    localStorage.setItem(this.STORAGE_ID, JSON.stringify(this.state.shortcuts))
   }
 
   addShortcut (title, shortcut, img) {
@@ -26,9 +34,7 @@ class App extends Component {
 
     this.setState({
       shortcuts: this.state.shortcuts.concat([newShortcut])
-    }, () => {
-      localStorage.setItem(this.STORAGE_ID, JSON.stringify(this.state.shortcuts));
-    })
+    }, () => { this.setToLocalStorage() })
   }
 
   deleteShortcut (shortcut) {
@@ -36,7 +42,7 @@ class App extends Component {
 
     this.setState({
       shortcuts: update(this.state.shortcuts, {$splice: [[index, 1]]})
-    });
+    }, () => { this.setToLocalStorage() });
   }
 
   renderEditText () {
