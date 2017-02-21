@@ -19,10 +19,10 @@ h5 {
   padding: 10px;
 }
 
-.edit {
+.edit-all-shortcut {
   display: none;
 }
 
-.edit-mode .edit {
+.edit-all .edit-all-shortcut {
   display: block;
 }

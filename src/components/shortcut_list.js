@@ -18,7 +18,7 @@ const ShortcutList = (props) => {
 
   return (
     <div className='row'>
-      <div className={'col-md-8 col-md-offset-2 list-group ' + (props.editMode ? 'edit-mode' : '')}>
+      <div className={'col-md-8 col-md-offset-2 list-group ' + (props.editMode ? 'edit-all' : '')}>
         {shortcuts}
       </div>
     </div>
