@@ -6,15 +6,19 @@ const ShortcutList = (props) => {
     return <div>Add a new shortcut above!</div>
   }
 
+  const deleteShortcut = (shortcut) => {
+    props.onShortcutDelete(shortcut)
+  };
+
   const shortcuts = props.shortcuts.map((shortcut, index) => {
     return (
-      <ShortcutItem title={shortcut.title} url={shortcut.url} img={shortcut.img} key={index} />
+      <ShortcutItem onDelete={(shortcut) => deleteShortcut(shortcut)} shortcut={shortcut} key={index} />
     )
   })
 
   return (
     <div className='row'>
-      <div className={'col-md-8 col-md-offset-2 list-group ' + (props.editMode && 'edit-mode')}>
+      <div className={'col-md-8 col-md-offset-2 list-group ' + (props.editMode ? 'edit-mode' : '')}>
         {shortcuts}
       </div>
     </div>

@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react'
 
-const ShortcutItem = (props) => {
+class ShortcutItem extends Component {
+  constructor (props) {
+    super(props)
+  }
 
-  return (
-    <div className='list-group-item col-md-4'>
-      <a href={props.url} target='_blank'>
-        <img src={props.img}></img>
-        {props.title}
-      </a>
+  handleDeleteClick () {
+    this.props.onDelete(this.props.shortcut);
+  }
 
-      <span className='edit'>Editing!</span>  
-    </div>
-  )
+  render () {
+    return (
+      <div className='list-group-item col-md-4'>
+        <a href={this.props.shortcut.url} target='_blank'>
+          <img src={this.props.shortcut.img}></img>
+          {this.props.shortcut.title}
+        </a>
+
+        <span className='edit'>
+          <button onClick={() => this.handleDeleteClick()} className='btn btn-danger'>Delete</button>
+        </span>
+      </div>
+    )
+  }
 }
 
 export default ShortcutItem
